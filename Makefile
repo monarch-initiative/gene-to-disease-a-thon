@@ -1,7 +1,9 @@
 
 # target to download https://search.thegencc.org/download/action/submissions-export-tsv as gencc.tsv and write into data/ directory using curl
 
-all: download
+DBNAME = output/monarch-g2d.duckdb
+
+all: download load
 
 data:
 	mkdir -p data
@@ -16,3 +18,8 @@ data/gencc.tsv: data
 
  # Create schema
 
+load: load_gencc
+
+# load gencc
+load_gencc:
+	duckdb $(DBNAME) < sql/load_gencc.sql
