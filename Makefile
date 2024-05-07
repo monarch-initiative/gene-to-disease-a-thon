@@ -18,6 +18,7 @@ data/gencc.tsv: data
 	wget -O data/gencc.tsv https://search.thegencc.org/download/action/submissions-export-tsv
 
  # TODO: add download from exomiser  (?)
+# this is in resources/disease.pg
 
  # Create schema
 

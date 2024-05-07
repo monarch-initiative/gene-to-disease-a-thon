@@ -1,3 +1,4 @@
+disease_curie | mim_gene_curie | disease_title | ncbi_gene_id | disease_type | moi_code
 OMIM:616126|OMIM:147571|Immunodeficiency 38|9636|D|R
 OMIM:615120|OMIM:103320|Myasthenic syndrome, congenital, 8, with pre- and postsynaptic defects|375790|D|R
 OMIM:615593|OMIM:600315|?Immunodeficiency 16|7293|?|R
