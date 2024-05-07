@@ -8,6 +8,9 @@ all: download load
 data:
 	mkdir -p data
 
+output:
+	mkdir -p output
+
 # Add additional downloads here
 download: data/gencc.tsv
 
@@ -21,5 +24,5 @@ data/gencc.tsv: data
 load: load_gencc
 
 # load gencc
-load_gencc:
+load_gencc: output
 	duckdb $(DBNAME) < sql/load_gencc.sql
