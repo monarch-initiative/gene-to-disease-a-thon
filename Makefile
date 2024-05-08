@@ -3,7 +3,7 @@
 
 DBNAME = output/monarch-g2d.duckdb
 
-all: download load
+all: download load merge
 
 data:
 	mkdir -p data
@@ -25,11 +25,9 @@ data/mondo.sssom.tsv: data
 
  # Create schema
 
-load: load_gencc load_sssom
+load:
+	duckdb $(DBNAME) < sql/load.sql
 
-# load gencc
-load_gencc: output
-	duckdb $(DBNAME) < sql/load_gencc.sql
-
-load_sssom: output
-	duckdb $(DBNAME) < sql/load_mondo_sssom.sql
+merge: load
+	duckdb $(DBNAME) < sql/schema.sql
+	duckdb $(DBNAME) < sql/merge.sql
