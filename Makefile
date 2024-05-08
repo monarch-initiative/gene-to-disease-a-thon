@@ -12,13 +12,16 @@ output:
 	mkdir -p output
 
 # Add additional downloads here
-download: data/gencc.tsv data/mondo.sssom.tsv
+download: data/gencc.tsv data/mondo.sssom.tsv data/gene_mappings.sssom.tsv
 
 data/gencc.tsv: data
-	wget -O data/gencc.tsv https://search.thegencc.org/download/action/submissions-export-tsv
+	curl --silent https://search.thegencc.org/download/action/submissions-export-tsv > data/gencc.tsv
 
 data/mondo.sssom.tsv: data
-	wget -P data https://data.monarchinitiative.org/mappings/latest/mondo.sssom.tsv
+	curl --silent --output-dir data -O https://data.monarchinitiative.org/mappings/latest/mondo.sssom.tsv
+
+data/gene_mappings.sssom.tsv: data
+	curl --silent --output-dir data -O https://data.monarchinitiative.org/mappings/latest/gene_mappings.sssom.tsv
 
  # TODO: add download from exomiser  (?)
 # this is in resources/disease.pg
