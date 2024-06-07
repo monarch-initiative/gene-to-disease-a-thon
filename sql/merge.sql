@@ -1,6 +1,6 @@
 insert into gene_to_disease by name
 select
-     gene_curie as original_gene_id,
+     gene_original_curie as original_gene_id,
      gene_curie as hgnc_id,
      disease_original_curie as original_disease_id,
      disease_curie as mondo_id,

@@ -23,6 +23,13 @@ data/mondo.sssom.tsv: data
 data/gene_mappings.sssom.tsv: data
 	curl --silent --output-dir data -O https://data.monarchinitiative.org/mappings/latest/gene_mappings.sssom.tsv
 
+# The HGNC and HPOA files are not really required, but are nice to have as a primary source for when doing comparisons
+data/hgnc_complete_set.tsv: data
+	curl --silent https://g-a8b222.dd271.03c0.data.globus.org/pub/databases/genenames/hgnc/tsv/hgnc_complete_set.txt > data/hgnc_complete_set.tsv
+
+data/hpoa.tsv: data
+	curl --silent -L --max-redirs 10 https://purl.obolibrary.org/obo/hp/hpoa/phenotype.hpoa > data/hpoa.tsv
+
  # TODO: add download from exomiser  (?)
 # this is in resources/disease.pg
 
